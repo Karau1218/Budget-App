@@ -149,13 +149,13 @@ button.danger:hover {
 }
 
 pre {
-  background: #0f172a;
-  color: #38bdf8;
-  padding: 14px;
-  border-radius: 8px;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 13px;
-  line-height: 1.35;
-  overflow-x: auto;
+  background: #0f172a; 
+  color: #38bdf8; 
+  padding: 14px; 
+  border-radius: 8px; 
+  font-family: "Courier New", Courier, monospace; 
+  font-size: 13px; 
+  line-height: 1.35; 
+  overflow-x: auto; 
   white-space: pre;
 }
