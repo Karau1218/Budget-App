@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget App & Spend Chart</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Budget App</h1>
+      <p class="subtitle">Python Object-Oriented Ledger & Spend Chart</p>
+    </header>
+
+    <div class="grid">
+      <!-- Left Column: Controls -->
+      <div class="card">
+        <h2>Actions</h2>
+
+        <!-- Category Creator -->
+        <div class="form-group">
+          <label>Create Category</label>
+          <div class="row">
+            <input type="text" id="catName" placeholder="e.g. Food, Clothing" />
+            <button onclick="addCategory()">Create</button>
+          </div>
+        </div>
+
+        <!-- Transaction Controls -->
+        <div class="form-group">
+          <label>Transaction</label>
+          <select id="activeCategory"></select>
+          <input type="number" id="txAmount" placeholder="Amount (e.g. 25.50)" step="0.01" />
+          <input type="text" id="txDesc" placeholder="Description" />
+          <div class="btn-row">
+            <button onclick="makeDeposit()">Deposit</button>
+            <button class="danger" onclick="makeWithdraw()">Withdraw</button>
+          </div>
+        </div>
+
+        <!-- Transfer Controls -->
+        <div class="form-group">
+          <label>Transfer Funds</label>
+          <div class="row">
+            <select id="transferFrom"></select>
+            <span class="arrow">&rarr;</span>
+            <select id="transferTo"></select>
+          </div>
+          <input type="number" id="transferAmount" placeholder="Amount" step="0.01" />
+          <button class="secondary" onclick="makeTransfer()">Transfer</button>
+        </div>
+
+        <div id="status">Loading Python runtime...</div>
+      </div>
+
+      <!-- Right Column: Outputs -->
+      <div class="card">
+        <h2>Ledger Printout</h2>
+        <pre id="ledgerDisplay">Select or create a category to view ledger.</pre>
+
+        <h2>Spend Chart</h2>
+        <button class="secondary" style="margin-bottom: 10px;" onclick="renderChart()">Refresh Chart</button>
+        <pre id="chartDisplay">Chart will render here once spending occurs.</pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
